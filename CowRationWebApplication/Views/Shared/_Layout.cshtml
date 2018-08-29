@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/materialize.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+
+        <nav>
+            <div class="nav-wrapper">
+                <span class="brand-logo center grey-text darken-4">Рацион</span>
+                <ul class="right">
+                    <li>
+                        <a href="#">
+                            <i class="far fa-bell grey-text darken-4"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="profile" href="#">
+                            <img src="~/images/22501714.jpg" class="circle responsive-img" width="40" height="40"/>
+                            <span class="grey-text darken-4">Евгений</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog grey-text darken-4"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <ul class="sidenav sidenav-fixed menu">
+                <li class="logo-section">
+                    <h2 style="display:inline;">Cow</h2>
+                    <img src="~/images/cow.png" width="80" height="80" style="display:inline;" />
+                    <h2 style="margin-left:70px;">Ration</h2>
+                </li>
+                <li>
+                    <a class="waves-effect waves-blue" href="#">
+                        <i class="fas fa-calculator menu-icon"></i>
+                        <span>Рацион</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="waves-effect waves-blue" href="#">
+                        <i class="fas fa-clipboard-list menu-icon"></i>
+                        <span>Логистика</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="waves-effect waves-blue" href="#">
+                        <i class="fas fa-chart-pie menu-icon"></i>
+                        <span>Экономика</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    @RenderBody()
+    <script src="~/lib/jquery.min.js"></script>
+    <script src="~/lib/materialize.min.js"></script>
+    <script src="~/js/site.min.js"></script>
+</body>
+</html>

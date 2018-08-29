@@ -1,0 +1,50 @@
+﻿.menu {
+    background-color: rgb(26, 32, 40);
+}
+
+nav {
+    background-color: white;
+}
+
+nav .profile{
+    display:flex;
+    align-items:center;
+}
+
+nav .profile img {
+    margin-right:10px;
+}
+
+nav .profile span{
+    font-size:18px;
+}
+
+.menu .logo-section {
+    margin-bottom: 30px;
+}
+
+    .menu .logo-section h2 {
+        margin: 0;
+        padding: 0;
+        color: rgb(0,102,204);
+        font-weight: bold;
+        margin-left: 40px;
+        font-size: 40px;
+    }
+
+.menu li a {
+    height: 70px;
+    color: silver;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+    .menu li a .menu-icon {
+        font-size: 30px;
+        color: silver;
+    }
+
+.waves-effect.waves-blue .waves-ripple {
+    background-color: rgba(0, 102, 204, 0.65);
+}
