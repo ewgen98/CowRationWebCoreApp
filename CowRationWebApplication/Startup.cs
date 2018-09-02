@@ -48,7 +48,7 @@ namespace CowRationWebApplication
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Ration}/{action=Index}/{id?}");
+                    template: "{controller=Ration}/{action=RationView}/{id?}");
             });
         }
     }

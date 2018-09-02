@@ -10,16 +10,16 @@ namespace CowRationWebApplication.Controllers
     public class RationController : Controller
     {
         private CowRationContext db;
-        private List<Korm> kormsSelections;
+        private List<RationGrid> kormsSelections=new List<RationGrid> ();
         public RationController(CowRationContext context)
         {
             db=context;
         }
-        public IActionResult Index()
+        public IActionResult RationView()
         {
             var model=new RationViewModel
             {
-                Korms = db.Korm.Select(k=>new KormGrid{Selected=true, KormName=k.NameKorm, Price=k.PriceKorm }).ToList(),
+                Korms = db.Korm.Select(k=>new KormGrid{Id=k.IdKorm, Selected=true, KormName=k.NameKorm, Price=k.PriceKorm }).ToList(),
                 LaboratoryResult = new List<LaboratoryGrid>()
             };
             foreach (var item in db.Korm.ToList())
@@ -39,21 +39,27 @@ namespace CowRationWebApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult Result(int countMilk)
+        public IActionResult Result(int[] SelectedKorms,int countMilk)
         {
-            var result = new ResultRationViewModel();
-            result.Rations = db.Korm.ToList().Select(k => new RationGrid { Name = k.NameKorm }).ToList();
+            foreach (var id in SelectedKorms)
+            {
+                kormsSelections.Add(new RationGrid
+                {
+                    Name=db.Korm.Where(k=>k.IdKorm==id).FirstOrDefault().NameKorm
+                });
+            }
+
             foreach (var item in db.RationCow.Include("Milk").Include("Korm").Where(r => r.Milk.MilkQuantity == countMilk).ToList())
             {
-                RationGrid date = result.Rations.Where(r => r.Name == item.Korm.NameKorm).FirstOrDefault();
+                RationGrid date = kormsSelections.Where(r => r.Name == item.Korm.NameKorm).FirstOrDefault();
                 if (date != null)
                 {
-                    result.Rations.Where(r => r.Name == item.Korm.NameKorm).FirstOrDefault().Value = item.Value;
-                    result.Rations.Where(r => r.Name == item.Korm.NameKorm).FirstOrDefault().Cost = item.Value * (double) item.Korm.PriceKorm;
+                    kormsSelections.Where(r => r.Name == item.Korm.NameKorm).FirstOrDefault().Value = item.Value;
+                    kormsSelections.Where(r => r.Name == item.Korm.NameKorm).FirstOrDefault().Cost = item.Value * (double) item.Korm.PriceKorm;
 
                 }
             }
-            return View(result.Rations);
+            return View(kormsSelections);
         }
     }
 }

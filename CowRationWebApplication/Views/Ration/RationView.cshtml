@@ -1,6 +1,6 @@
 ﻿@model RationViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Рацион";
 }
 
 <ul id="tabs-swipe-demo" class="tabs row">
@@ -13,7 +13,6 @@
     <div id="test-swipe-1" class="col s12 main-tab">@Html.Partial("_FeedSelection", Model.Korms)</div>
     <div id="test-swipe-2" class="col s12 main-tab">@Html.Partial("_FeedCategory")</div>
     <div id="test-swipe-3" class="col s12 main-tab">@Html.Partial("_LaboratoryResult", Model.LaboratoryResult)</div>
-    <input type="submit" value="POST"/>
 </form>
 
 
