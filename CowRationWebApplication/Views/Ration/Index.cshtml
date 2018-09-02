@@ -1,0 +1,19 @@
+﻿@model RationViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<ul id="tabs-swipe-demo" class="tabs row">
+    <li class="tab col s4"><a class="active" href="#test-swipe-1">Выбор кормов</a></li>
+    <li class="tab col s4"><a href="#test-swipe-2">Категория кормления</a></li>
+    <li class="tab col s4"><a href="#test-swipe-3">Результаты лабораторных анализов</a></li>
+</ul>
+
+<form method="post" action="~/Ration/Result">
+    <div id="test-swipe-1" class="col s12 main-tab">@Html.Partial("_FeedSelection", Model.Korms)</div>
+    <div id="test-swipe-2" class="col s12 main-tab">@Html.Partial("_FeedCategory")</div>
+    <div id="test-swipe-3" class="col s12 main-tab">@Html.Partial("_LaboratoryResult", Model.LaboratoryResult)</div>
+    <input type="submit" value="POST"/>
+</form>
+
+

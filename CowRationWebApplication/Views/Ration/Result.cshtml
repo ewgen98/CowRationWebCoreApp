@@ -1,0 +1,44 @@
+﻿@model IEnumerable<RationGrid>
+<div class="row pt-3">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col s12">
+                <p class="center-align desc flow-text">Результат рассчета</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="flow-text">Корм</th>
+                            <th class="flow-text">Количество(кг/сутки)</th>
+                            <th class="flow-text">Стоимость(руб)</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Value</td>
+                                <td>@item.Cost</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col s12 pt-2 pb-2">
+                <p class="center-align flow-text">
+                    Стоимость рациона:
+                    <span class="flow-text">5.5135</span>(руб)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

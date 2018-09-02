@@ -4,12 +4,12 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/lib/materialize.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/FeedSelection.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <header>
-
         <nav>
             <div class="nav-wrapper">
                 <span class="brand-logo center grey-text darken-4">Рацион</span>
@@ -66,9 +66,11 @@
             </ul>
         </div>
     </header>
-    @RenderBody()
+    <div class="main">
+        @RenderBody()
+    </div> 
     <script src="~/lib/jquery.min.js"></script>
     <script src="~/lib/materialize.min.js"></script>
-    <script src="~/js/site.min.js"></script>
+    <script src="~/js/site.js"></script>
 </body>
 </html>

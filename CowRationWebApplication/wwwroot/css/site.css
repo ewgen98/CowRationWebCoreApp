@@ -48,3 +48,14 @@ nav .profile span{
 .waves-effect.waves-blue .waves-ripple {
     background-color: rgba(0, 102, 204, 0.65);
 }
+.main{
+    margin-left:300px;
+}
+
+.main-tab{
+    margin:20px;
+}
+
+.active{
+    border-color:rgb(0,102,204);
+}
