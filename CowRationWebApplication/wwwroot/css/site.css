@@ -57,5 +57,25 @@ nav .profile span{
 }
 
 .active{
-    border-color:rgb(0,102,204);
+    border-color:rgb(0,102,204)!important;
+}
+
+.tabs .indicator {
+    background: rgb(0,102,204)!important;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    color: #0066CC !important;
+}
+
+.tabs .tab a, .tabs .tab a.active {
+    color: #0066CC !important;
+}
+
+    .tabs .tab a:focus, .tabs .tab a:focus.active {
+        background-color: rgba(0,102,204, 0.2) !important;
+    }
+
+.btn {
+    background: rgb(0,102,204) !important;
 }
