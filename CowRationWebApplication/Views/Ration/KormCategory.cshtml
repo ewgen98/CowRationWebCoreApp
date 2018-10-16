@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "KormCategory";
+}
+<form method="post" asp-controller="Ration" asp-action="KormLaboratory">
+    <div class="d-flex mt-3 justify-content-center blue-text">
+        <h4 class="font-weight-bold">Категория кормления</h4>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <span class="blue-text indsript">Вес:</span>
+        <div class="md-form">
+            <input type="text" id="weight" class="form-control">
+            <label for="weight">Введите вес</label>
+        </div>
+        <span class="blue-text">(кг)</span>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <span class="blue-text ml-5 mr-3">Удой</span>
+        <div id="slider" style="width:100%; height:10px;">
+            <div id="custom-handle" class="ui-slider-handle" style="border-radius:50%;background: #007bff;"></div>
+        </div>
+        <span name="countMilk" id="value-range" class="font-weight-bold ml-3"></span>
+        <input type="hidden" value="22" name="countMilk" />
+        <span class="blue-text mr-5"> (л)</span>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <span class="blue-text indsript">Жирность:</span>
+        <div class="md-form">
+            <input type="text" id="fat" class="form-control">
+            <label for="fat">Введите жирность</label>
+        </div>
+        <span class="blue-text"> (%)</span>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <span class="blue-text indsript">Белок:</span>
+        <div class="md-form">
+            <input type="text" id="protein" class="form-control">
+            <label for="protein">Введите белок</label>
+        </div>
+        <span class="blue-text"> (%)</span>
+    </div>
+
+    <div class="row justify-content-around mb-5 mt-5">
+        <a asp-controller="Ration" asp-action="KormSelect" class="btn btn-primary blue"><i class="fa fa-arrow-left mr-3"></i>Назад</a>
+        <button type="submit" class="btn btn-primary blue">Далее<i class="fa fa-arrow-right ml-3"></i></button>
+    </div>
+</form>

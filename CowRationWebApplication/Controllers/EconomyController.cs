@@ -8,7 +8,7 @@ namespace CowRationWebApplication.Controllers
 {
     public class EconomyController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Initialdata()
         {
             return View();
         }
