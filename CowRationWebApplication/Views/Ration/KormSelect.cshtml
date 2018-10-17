@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<KormGrid>
 @{
-    ViewData["Title"] = "KormSelect";
+    ViewData["Title"] = "Рацион";
 }
 <form method="post" asp-controller="Ration" asp-action="KormCategory">
     <div class="d-flex mt-3 justify-content-center blue-text">
@@ -45,13 +45,9 @@
                         <tr>
                             <td class="pt-3-half">
 
-                                @*<div class="form-check">
-                                        <input type="checkbox" class="form-check-input" name="selectedKorms" value="@korm.Id">
-                                        <span></span>
-                                    </div>*@
-                                <div class="form-check form-check-inline">
-                                    <input type="checkbox" class="form-check-input" id="materialInline1">
-                                    <label class="form-check-label" for="materialInline1"></label>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" name="selectedKorms" value="@korm.Id">
+                                    <span></span>
                                 </div>
                             </td>
                             <td class="pt-3-half" contenteditable="true">@korm.KormName</td>

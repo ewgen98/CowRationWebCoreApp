@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<RationGrid>
+@{
+    ViewData["Title"] = "Рацион";
+}
 
 <div class="d-flex mt-3 mb-3 justify-content-center blue-text">
     <h4 class="font-weight-bold"></h4>
@@ -39,7 +42,7 @@
 
 <div class="d-flex justify-content-center align-items-center cost-ration">
     <span class="blue-text">Стоимость рациона:</span>
-    <span class="mr-2 ml-2">@Model.Sum(k=>k.Cost)</span>
+    <span class="mr-2 ml-2">@Model.Sum(k => k.Cost)</span>
     <span class="blue-text">(руб)</span>
 </div>
 
