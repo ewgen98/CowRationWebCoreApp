@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ExpensesGrid>
+@{
+    ViewData["Title"] = "Экономика";
+}
+<form asp-controller="Economy" asp-action="Result" method="post">
+    <div class="d-flex mt-3 justify-content-center blue-text">
+        <h4 class="font-weight-bold">Затраты</h4>
+    </div>
+
+    <div class="form-row d-flex align-items-center">
+        <div class="col-6 d-flex justify-content-end mr-3">
+            <span class="blue-text">Затраты на общий объем молока:</span>
+        </div>
+        <div class="col">
+            <div class="md-form">
+                <input type="text" id="generalVolume" class="form-control">
+                <label for="generalVolume">Введите объем</label>
+            </div>
+        </div>
+        <div class="col-3">
+            <span class="blue-text">(тыс./руб)</span>
+        </div>
+    </div>
+
+    <div class="card-body d-sm-flex">
+        <div id="table" style="width:100%;" class="table-editable">
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">Статья затрат</th>
+                        <th class="text-center">Сумма (руб)</th>
+                        <th class="text-center">%</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var article in Model)
+                    {
+                        <tr>
+                            <td class="pt-3-half">@article.Article</td>
+                            <td class="pt-3-half">@article.Price</td>
+                            <td class="pt-3-half">@article.Percenent</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row justify-content-around mb-5 mt-5">
+        <a asp-controller="Ration" asp-action="KormCategory" class="btn btn-primary blue"><i class="fa fa-arrow-left mr-3"></i>Назад</a>
+        <button type="submit" class="btn btn-primary blue">
+            Расчитать
+            <i class="fa fa-calculator ml-4"></i>
+        </button>
+    </div>
+</form>

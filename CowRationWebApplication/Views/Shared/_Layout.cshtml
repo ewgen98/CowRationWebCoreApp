@@ -91,7 +91,7 @@
                         <a asp-controller="Logic" asp-action="KormLagerraum" class="list-group-item waves-effect">
                             <i class="fa fa-pencil-square mr-3"></i>Логистика
                         </a>
-                        <a href="#" class="list-group-item waves-effect">
+                        <a asp-controller="Economy" asp-action="Initialdata" class="list-group-item waves-effect">
                             <i class="fa fa-pie-chart mr-3"></i>Экономика
                         </a>
                         break;
@@ -102,7 +102,7 @@
                         <a asp-controller="Logic" asp-action="KormLagerraum" class="list-group-item active waves-effect">
                             <i class="fa fa-pencil-square mr-3"></i>Логистика
                         </a>
-                        <a href="#" class="list-group-item waves-effect">
+                        <a asp-controller="Economy" asp-action="Initialdata" class="list-group-item waves-effect">
                             <i class="fa fa-pie-chart mr-3"></i>Экономика
                         </a>
                         break;
@@ -113,7 +113,7 @@
                         <a asp-controller="Logic" asp-action="KormLagerraum" class="list-group-item waves-effect">
                             <i class="fa fa-pencil-square mr-3"></i>Логистика
                         </a>
-                        <a href="#" class="list-group-item active waves-effect">
+                        <a asp-controller="Economy" asp-action="Initialdata" class="list-group-item active waves-effect">
                             <i class="fa fa-pie-chart mr-3"></i>Экономика
                         </a>
                         break;
@@ -132,13 +132,16 @@
             </div>
         </div>
 
-
         <div class="container-fluid">
             <div class="card mb-4 wow fadeIn main">
                 @RenderBody()
             </div>
         </div>
     </main>
+
+   
+
+
     <!-- /Start your project here-->
     <!-- SCRIPTS -->
     <!-- JQuery -->
@@ -152,10 +155,6 @@
     <script type="text/javascript" src="~/js/mdb.min.js"></script>
     <script type="text/javascript" src="~/js/main.js"></script>
     <script>
-        //$(".list-group a").on("click", function () {
-        //    $(".list-group a").removeClass("active");
-        //    $(this).addClass("active");
-        //});
 
         $(function () {
             $("#slider").slider({
@@ -225,6 +224,7 @@
             $EXPORT.text(JSON.stringify(data));
         });
     </script>
+    @RenderSection("Script", false)
 </body>
 
 </html>

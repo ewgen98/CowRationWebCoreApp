@@ -25,7 +25,7 @@ namespace CowRationWebApplication.Controllers
         }
 
          [HttpPost]
-        public IActionResult KormCategory(int [] selectedKorms)
+        public IActionResult KormCategory(int [] selectedKorms, int cowCount)
         {
             var kormsSelections=new List<RationGrid>();
             foreach (var id in selectedKorms)
@@ -42,6 +42,7 @@ namespace CowRationWebApplication.Controllers
                 });
             }
             HttpContext.Session.Set("SelectKorms",kormsSelections);
+            HttpContext.Session.Set<int>("CowCount",cowCount);
             return View();
         }
         

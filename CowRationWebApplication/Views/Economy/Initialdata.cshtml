@@ -1,33 +1,61 @@
-﻿
+﻿@model DataMilk
 @{
     ViewData["Title"] = "Экономика";
 }
 
-<h2 class="center">Исходные данные</h2>
+<div class="d-flex mt-3 justify-content-center blue-text">
+    <h4 class="font-weight-bold">Исходные данные</h4>
+</div>
 
-<div class="row">
-    <div class="input-field col s12">
-        <input id="password" type="text" class="validate">
-        <label for="password">Password</label>
+<form asp-controller="Economy" asp-action="Characteristics" method="post">
+
+    <!--Общий объем проданного молока за пред. год:-->
+    <div class="form-row d-flex align-items-center">
+        <div class="col-6 d-flex justify-content-center">
+            <span class="blue-text">Общий объем проданного молока за пред. год:</span>
+        </div>
+        <div class="col">
+            <div class="md-form">
+                <input asp-for="PreviewQuantityMilk" id="previewQuantityMilk" class="form-control">
+                <label for="previewQuantityMilk">Введите объем</label>
+            </div>
+        </div>
+        <div class="col-3">
+            <span class="blue-text">(т)</span>
+        </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="input-field col s12">
-        <input id="password" type="text" class="validate">
-        <label for="password">Password</label>
+    <!--Средний суточный удой за пред. год-->
+    <div class="form-row d-flex align-items-center">
+        <div class="col-6 d-flex justify-content-center">
+            <span class="blue-text">Средний суточный удой за пред. год:</span>
+        </div>
+        <div class="col">
+            <div class="md-form">
+                <input asp-for="PreviewAverage" id="previewAverage" class="form-control">
+                <label for="previewAverage">Введите суточный удой</label>
+            </div>
+        </div>
+        <div class="col-3">
+            <span class="blue-text">(кг)</span>
+        </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="input-field col s12">
-        <input id="password" type="text" class="validate">
-        <label for="password">Password</label>
+    <!--Фактическая жирность молока-->
+    <div class="form-row d-flex align-items-center">
+        <div class="col-6 d-flex justify-content-center">
+            <span class="blue-text">Фактическая жирность молока:</span>
+        </div>
+        <div class="col">
+            <div class="md-form">
+                <input asp-for="FatMilkF" id="fatMilkF" class="form-control">
+                <label for="fatMilkF">Введите жирность</label>
+            </div>
+        </div>
+        <div class="col-3">
+            <span class="blue-text">(%)</span>
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <button type="submit" class="waves-effect waves-light btn col s6 offset-s3">
-        Далее
-    </button>
-</div>
+    <div class="row justify-content-around mb-5 mt-5">
+        <button type="submit" class="btn btn-primary w-25">Далее</button>
+    </div>
+</form>

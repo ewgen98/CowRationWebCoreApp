@@ -37,6 +37,7 @@ namespace CowRationWebApplication
             }
             else
             {
+                app.UsePathBase("/app");
                 app.UseExceptionHandler("/Home/Error");
             }
 
