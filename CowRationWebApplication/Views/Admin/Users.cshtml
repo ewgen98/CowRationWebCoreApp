@@ -1,0 +1,94 @@
+﻿@model IEnumerable<User>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="~/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" type="text/css" href="~/css/userscss.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <title>Users</title>
+</head>
+<body>
+
+    <div class="wrapper-modal-editor">
+        <div class="d-flex justify-content-center">
+            <!--Add Button-->
+            <div class="text-center">
+                <a asp-controller="Account" asp-action="Created" class="btn btn-info btn-rounded btn-sm">
+                    Добавить новую организацию<i class="fa fa-plus-square ml-1"></i>
+                </a>
+            </div>
+            <!--Edit Button-->
+            <div class="text-center buttonEditWrapper">
+                <button class="btn btn-info btn-rounded btn-sm buttonEdit">
+                    Изменить<i class="fa fa-pencil-square-o ml-1"></i>
+                </button>
+            </div>
+            <!--Deleted Button-->
+            <div class="text-center">
+                <button class="btn btn-danger btn-sm btn-rounded buttonDelete">
+                    Удалить<i class="fa fa-times ml-1"></i>
+                </button>
+            </div>
+            <!--LogOut Button-->
+            <div class="text-center buttonEditWrapper">
+                <form asp-action="LogOff" asp-controller="Account" method="post">
+                    <button class="btn orange btn-rounded btn-sm buttonEdit" type="submit">
+                        Выйти<i class="fa fa-pencil-square-o ml-1"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+        <!--Table Start-->
+        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0">
+            <thead>
+                <tr>
+                    <th class="th-sm">
+                        Название организации
+                        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                    </th>
+                    <th class="th-sm">
+                        Логин или пароль
+                        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.OrganizationName</td>
+                        <td>@item.UserName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    <!-- /Start your project here-->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="~/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="~/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="~/js/mdb.min.js"></script>
+    <script>
+        $('#dtBasicExample').mdbEditor();
+        $('.dataTables_length').addClass('bs-select');
+    </script>
+</body>
+</html>

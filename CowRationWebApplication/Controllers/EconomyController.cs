@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using CowRationWebApplication.Extensions;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CowRationWebApplication.Controllers
 {
+    [Authorize(Roles ="user")]
     public class EconomyController : Controller
     {
         private CowRationContext db;

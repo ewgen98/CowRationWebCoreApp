@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,16 @@ namespace CowRationWebApplication
 
             services.AddDbContext<CowRationContext>(options =>
             options.UseSqlServer(connectionString));
+            services.AddIdentity<User,IdentityRole>(opts=>
+            {
+                opts.Password.RequiredLength=5;
+                opts.Password.RequireNonAlphanumeric = false;   // требуются ли не алфавитно-цифровые символы
+                opts.Password.RequireLowercase = true; // требуются ли символы в нижнем регистре
+                opts.Password.RequireUppercase = false; // требуются ли символы в верхнем регистре
+                 opts.Password.RequireDigit = true; // требуются ли цифры
+            })
+                .AddEntityFrameworkStores<CowRationContext>();
+
             services.AddMvc();
             services.AddDistributedMemoryCache();
             services.AddSession();
@@ -43,11 +54,12 @@ namespace CowRationWebApplication
 
             app.UseStaticFiles();
             app.UseSession();
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Ration}/{action=KormSelect}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

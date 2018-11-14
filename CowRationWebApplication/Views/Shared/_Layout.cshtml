@@ -66,7 +66,9 @@
 
                         <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item waves-effect waves-light" href="#">Мой профиль</a>
-                            <a class="dropdown-item waves-effect waves-light" href="#">Выйти из системы</a>
+                            <form id="form" asp-action="LogOff" asp-controller="Account" method="post">
+                                <a id="submit" class="dropdown-item waves-effect waves-light">Выйти из системы</a>
+                            </form>
                         </div>
                     </li>
 
@@ -167,6 +169,10 @@
                 }
             });
             $("#value-range").text($("#slider").slider("value"));
+        });
+
+        $('#submit').click(function () {
+            $('#form').submit();
         });
 
         var $TABLE = $('#table');

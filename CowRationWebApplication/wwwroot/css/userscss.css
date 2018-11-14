@@ -1,0 +1,15 @@
+﻿.tr-color-selected {
+    background-color: hsla(196, 77%, 55%, 0.3) !important;
+    transition: all .2s ease-in;
+}
+
+.closeByClick {
+    transition: opacity .15s linear;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0, .2);
+    z-index: 1090;
+}

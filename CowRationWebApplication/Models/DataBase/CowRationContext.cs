@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CowRationWebApplication
 {
-    public partial class CowRationContext : DbContext
+    public partial class CowRationContext : IdentityDbContext<User>
     {
         public virtual DbSet<CatalogIndexNutritional> CatalogIndexNutritional { get; set; }
         public virtual DbSet<Expenses> Expenses { get; set; }
@@ -234,6 +233,8 @@ namespace CowRationWebApplication
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public CowRationContext(DbContextOptions<CowRationContext> options):base(options)

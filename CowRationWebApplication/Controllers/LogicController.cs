@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using CowRationWebApplication.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CowRationWebApplication.Controllers
 {
+    [Authorize(Roles ="user")]
     public class LogicController : Controller
     {
         private CowRationContext db;
